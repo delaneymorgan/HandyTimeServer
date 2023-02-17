@@ -1,0 +1,10 @@
+[unit]
+Description=Simple local time server
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+ExecStart=LocalTimeServer
+
+[Install]
