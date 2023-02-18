@@ -3,6 +3,7 @@
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import argparse
+import importlib.metadata
 import json
 import time
 import LocalTimeServer
@@ -39,13 +40,13 @@ def arg_parser():
 
     :return: the parsed command line arguments
     """
+    version = importlib.metadata.version("LocalTimeServerPkg")
     parser = argparse.ArgumentParser(description='LocalTimerServer - '
                                                  'a simple web-service providing local time on request in JSON format.',
                                      add_help=False)
     parser.add_argument("-h", "--host", help="host name", required=True)
     parser.add_argument("-p", "--port", type=int, help="port#", required=True)
-    parser.add_argument("--version", action="version",
-                        version=f"{LocalTimeServer.__name__} {LocalTimeServer.__version__}")
+    parser.add_argument("--version", action="version", version=f"{LocalTimeServer.__name__} {version}")
     parser.add_argument("-?", "--help", help="show help message and quit", action="help")
     args = parser.parse_args()
     return args
@@ -57,13 +58,13 @@ def arg_parser():
 def main():
     args = arg_parser()
     web_server = HTTPServer((args.host, args.port), MyServer)
-    print(f"Server started http://{args.host}:{args.port}")
+    print(f"{LocalTimeServer.__name__} started http://{args.host}:{args.port}")
     try:
         web_server.serve_forever()
     except KeyboardInterrupt:
         pass
     web_server.server_close()
-    print("Server stopped")
+    print(f"{LocalTimeServer.__name__} stopped")
     return
 
 
