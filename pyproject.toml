@@ -4,11 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "LocalTimeServer"
-version = "1.0.0"
+version = "0.1.0"
 authors = [
   { name="Craig McFarlane", email="support@delaneymorgan.com.au" },
 ]
-description = "A simple local time server"
+description = "A simple web-service providing local time on request in JSON format."
 readme = "README.md"
 requires-python = ">=3.6"
 classifiers = [
@@ -25,9 +25,6 @@ classifiers = [
     'Programming Language :: Python :: 3.11',
     'Programming Language :: Python :: 3.12',
 ]
-
-[project-scripts]
-lts = "LocalTimeServerPkg.__main__:main"
 
 [project.urls]
 "Homepage" = "https://github.com/delaneymorgan/LocalTimeServer"

@@ -3,11 +3,13 @@
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import argparse
-import importlib.metadata
 import json
 import time
 import LocalTimeServer
-
+try:
+    import tomllib
+except ModuleNotFoundError:
+    import tomli as tomllib
 
 # =============================================================================
 
@@ -40,10 +42,12 @@ def arg_parser():
 
     :return: the parsed command line arguments
     """
-    version = importlib.metadata.version("LocalTimeServerPkg")
-    parser = argparse.ArgumentParser(description='LocalTimerServer - '
-                                                 'a simple web-service providing local time on request in JSON format.',
-                                     add_help=False)
+    with open("pyproject.toml", mode="rb") as config:
+        toml_file = tomllib.load(config)
+    version = toml_file["project"]["version"]
+    description = toml_file["project"]["description"]
+    parser = argparse.ArgumentParser(prog=f"{LocalTimeServer.__name__}",
+                                     description=f"{LocalTimeServer.__name__} - {description}", add_help=False)
     parser.add_argument("-h", "--host", help="host name", required=True)
     parser.add_argument("-p", "--port", type=int, help="port#", required=True)
     parser.add_argument("--version", action="version", version=f"{LocalTimeServer.__name__} {version}")
