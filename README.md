@@ -41,8 +41,23 @@ To install system-wide, use sudo.
 
 ## Building Debian package
 
+Firstly, install pre-requisites:
+
+    sudo apt install build-essential binutils lintian debhelper dh-make devscripts
+
+Set the following environment variables:
+
+    export DEBEMAIL="your@mail.com"
+    export DEBFULLNAME="Name Lastname"
+
+
 TBC
 
 ## Installing into OS
 
 TBC
+
+## Updating Version#:
+
+    ./deb_lts/DEBIAN/control
+    ./LocalTimeServer/version.py

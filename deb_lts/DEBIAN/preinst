@@ -1,4 +1,0 @@
-if [ -e "/etc/systemd/system/mcs.service" ]
-then
-    systemctl stop LocalTimeServer
-fi

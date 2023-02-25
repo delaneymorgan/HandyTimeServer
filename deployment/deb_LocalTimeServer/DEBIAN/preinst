@@ -1,0 +1,4 @@
+if [ -e "/etc/systemd/system/LocalTimeServer.service" ]
+then
+    systemctl stop LocalTimeServer
+fi
