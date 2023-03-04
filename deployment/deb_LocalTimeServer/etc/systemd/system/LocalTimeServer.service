@@ -5,6 +5,7 @@ After=network.target
 [Service]
 User=root
 Group=www-data
-ExecStart=LocalTimeServer
+ExecStart=LocalTimeServer -h 127.0.0.1 -p 10123
 
 [Install]
+WantedBy=multi-user.target

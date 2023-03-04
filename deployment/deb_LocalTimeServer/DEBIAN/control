@@ -2,7 +2,7 @@ Package: LocalTimeServer
 Version: <version>
 Architecture: all
 Maintainer: support@delaneymorgan.com.au
-Depends: python3.6
+Depends: python3 (>=3.6)
 Installed-Size: in_kb
 Homepage: http://github.com/delaneymorgan/LocalTimeServer
 Description: A simple local time server
