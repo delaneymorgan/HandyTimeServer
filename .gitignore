@@ -130,3 +130,6 @@ dmypy.json
 
 # jetbrains IDEs (pycharm)
 .idea/
+
+# debian package
+*.deb

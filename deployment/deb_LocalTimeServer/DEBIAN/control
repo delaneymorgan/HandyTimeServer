@@ -1,5 +1,5 @@
 Package: LocalTimeServer
-Version: 0.1.0
+Version: <version>
 Architecture: all
 Maintainer: support@delaneymorgan.com.au
 Depends: python3.6
