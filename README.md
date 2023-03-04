@@ -25,7 +25,7 @@ You may need to install virtual environment support for your python version:
 
 ...where X.X is the python version on your system.
 i.e. python3.10 would be python3.10-venv.
-Note that LocalTimeServer requires Pyhton 3.6 or later.
+Note that LocalTimeServer requires Python 3.6 or later.
 
 From this directory:
 

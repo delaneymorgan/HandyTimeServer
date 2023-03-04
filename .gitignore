@@ -133,3 +133,9 @@ dmypy.json
 
 # debian package
 *.deb
+
+# package/install temporary directories
+raspbian_tmp/
+deb_tmp/
+
+
