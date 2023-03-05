@@ -50,14 +50,25 @@ Set the following environment variables:
     export DEBEMAIL="your@mail.com"
     export DEBFULLNAME="Name Lastname"
 
+from the deployment folder, run:
 
-TBC
+    ./build_deb_package.py -v <version>
+
+...where version is in a <major>.<minor>.<maintenance> format.
+The produced package will have the form:
+
+    LocalTimeServer-<version>.deb
 
 ## Installing into OS
 
-TBC
+Ubuntu/Debian:
+
+    sudo dpkg -i LocalTimerServer-<version>.deb
+
+Raspbian:
+
+    sudo ./install_on_raspbian.py
 
 ## Updating Version#:
 
-    ./deb_lts/DEBIAN/control
     ./LocalTimeServer/version.py

@@ -1,10 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # coding=utf-8
 
 import argparse
 import json
 import os
 import shutil
+import sys
 
 # =============================================================================
 
@@ -41,13 +42,19 @@ class RaspbianInstaller(object):
             shutil.copy(src_file, dest_file)
 
         # copy raspbian_tmp to destination
-        dest_path = os.path.join("opt", self.opt_target)
-        shutil.copytree(raspbian_tmp, dest_path)
+        dest_dir = os.path.join("/", "opt", self.opt_target)
+        if not os.path.exists(dest_dir):
+            os.makedirs(dest_dir)
+        dest_path = os.path.join(dest_dir, self.package_name)
+        shutil.rmtree(dest_path, ignore_errors=True)
+        src_path = os.path.join(raspbian_tmp, "opt", self.opt_target, self.package_name)
+        cmd = f"cp -R {src_path} {dest_path}"
+        error = os.system(cmd)
 
         # copy systemd service to /lib/systemd/system
         raspbian_template = os.path.join(current_folder, f"raspbian_{self.package_name}")
         service_filepath = os.path.join(raspbian_template, f"{self.package_name}.service")
-        dest_path = os.path.join("lib", "systemd", "system")
+        dest_path = os.path.join("/", "lib", "systemd", "system")
         shutil.copy(service_filepath, dest_path)
 
         shutil.rmtree(raspbian_tmp, ignore_errors=True)
