@@ -3,13 +3,17 @@ A simple local time server
 
 ## Usage:
 
-`LocalTimeServer -h <host> -p <port> [--version] [-?]`
+    LocalTimeServer -h <host> -p <port> [--version] [-?]
 
 The server will answer queries to this host/port with the current local time in JSON format.
 
 Enter the -? option to view command-line options.
 
-In a browser, enter:
+For instance:
+
+    LocalTimeServer -h 0.0.0.0 -p 10123
+
+... (0.0.0.0 => listen to all available IP addresses) and in a browser, enter:
 
     http://<host>:10123/
 

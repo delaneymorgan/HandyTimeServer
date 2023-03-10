@@ -58,9 +58,9 @@ class RaspbianInstaller(object):
         shutil.copy(service_filepath, dest_path)
 
         # finish configuring service
-        cmd = f"chown root:root /etc/systemd/system/{self.package_name}.service"
+        cmd = f"chown root:root /lib/systemd/system/{self.package_name}.service"
         error = os.system(cmd)
-        cmd = f"chmod -x /etc/systemd/system/{self.package_name}.service"
+        cmd = f"chmod -x /lib/systemd/system/{self.package_name}.service"
         error = os.system(cmd)
         cmd = f"systemctl --now enable {self.package_name}"
         error = os.system(cmd)
