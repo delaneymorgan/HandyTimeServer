@@ -3,19 +3,21 @@ A simple local time server
 
 ## Usage:
 
-    LocalTimeServer -h <host> -p <port> [--version] [-?]
+    LocalTimeServer -l <listener> -p <port> [--version] [-?]
 
-The server will answer queries to this host/port with the current local time in JSON format.
+The server will answer queries from the specified listener on the specified port with the current local time in JSON format.
+Specify 127.0.0.1 for only listeners inside the same machine as the server.
+Specify 0.0.0.0 for all listeners.
 
 Enter the -? option to view command-line options.
 
 For instance:
 
-    LocalTimeServer -h 0.0.0.0 -p 10123
+    LocalTimeServer -l 0.0.0.0 -p 10123
 
-... (0.0.0.0 => listen to all available IP addresses) and in a browser, enter:
+... and in a browser, enter:
 
-    http://<host>:10123/
+    http://<LocalTimeServer Host>:10123/
 
 It should return something like this:
 
@@ -49,11 +51,6 @@ Firstly, install pre-requisites:
 
     sudo apt install build-essential binutils lintian debhelper dh-make devscripts
 
-Set the following environment variables:
-
-    export DEBEMAIL="your@mail.com"
-    export DEBFULLNAME="Name Lastname"
-
 from the deployment folder, run:
 
     ./build_deb_package.py -v <version>
@@ -74,5 +71,7 @@ Raspbian:
     sudo ./install_on_raspbian.py
 
 ## Updating Version#:
+
+The version number is kept here:
 
     ./LocalTimeServer/version.py

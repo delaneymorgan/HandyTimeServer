@@ -41,7 +41,7 @@ def arg_parser():
     """
     parser = argparse.ArgumentParser(prog=f"{LocalTimeServer.__name__}",
                                      description=f"{LocalTimeServer.__name__} - {__description__}", add_help=False)
-    parser.add_argument("-h", "--host", help="host name", required=True)
+    parser.add_argument("-l", "--listener", help="listener name/address. 0.0.0.0 for any listener.", required=True)
     parser.add_argument("-p", "--port", type=int, help="port#", required=True)
     parser.add_argument("--version", action="version", version=f"{LocalTimeServer.__name__} {__version__}")
     parser.add_argument("-?", "--help", help="show help message and quit", action="help")
@@ -54,8 +54,8 @@ def arg_parser():
 
 def main():
     args = arg_parser()
-    web_server = HTTPServer((args.host, args.port), MyServer)
-    print(f"{LocalTimeServer.__name__} started http://{args.host}:{args.port}")
+    web_server = HTTPServer((args.listener, args.port), MyServer)
+    print(f"{LocalTimeServer.__name__} started http://{args.listener}:{args.port}")
     try:
         web_server.serve_forever()
     except KeyboardInterrupt:

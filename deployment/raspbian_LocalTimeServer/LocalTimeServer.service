@@ -6,7 +6,7 @@ After=network.target
 User=root
 Group=www-data
 WorkingDirectory=/opt/damco/LocalTimeServer
-ExecStart=/opt/damco/LocalTimeServer/local_time_server.py -h 0.0.0.0 -p 10123
+ExecStart=/opt/damco/LocalTimeServer/local_time_server.py -l 0.0.0.0 -p 10123
 
 [Install]
 WantedBy=multi-user.target
