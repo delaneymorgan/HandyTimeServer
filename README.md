@@ -3,17 +3,17 @@ A simple local time server
 
 ## Usage:
 
-    LocalTimeServer -l <listener> -p <port> [--version] [-?]
+    LocalTimeServer [-l <listener>] -p <port> [--version] [-?]
 
 The server will answer queries from the specified listener on the specified port with the current local time in JSON format.
 Specify 127.0.0.1 for only listeners inside the same machine as the server.
-Specify 0.0.0.0 for all listeners.
+Otherwise, the default is 0.0.0.0, for all listeners.
 
 Enter the -? option to view command-line options.
 
 For instance:
 
-    LocalTimeServer -l 0.0.0.0 -p 10123
+    LocalTimeServer -p 10123
 
 ... and in a browser, enter:
 
@@ -21,7 +21,7 @@ For instance:
 
 It should return something like this:
 
-    {"year": 2023, "month": 2, "dom": 17, "hour": 23, "min": 46, "sec": 11, "dow": 4, "doy": 48, "is_dst": 1}
+    {"year": 2023, "month": 4, "dom": 25, "hour": 8, "min": 34, "sec": 16, "dow": 1, "doy": 115, "is_dst": 0, "tick": 1682375656.844505}
 
 ## Building Python Package:
 

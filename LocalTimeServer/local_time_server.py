@@ -14,9 +14,10 @@ from LocalTimeServer.version import __version__, __description__
 class MyServer(BaseHTTPRequestHandler):
     # noinspection PyPep8Naming
     def do_GET(self):
-        tm = time.localtime()
+        now = time.time()
+        tm = time.localtime(now)
         my_time = dict(year=tm[0], month=tm[1], dom=tm[2], hour=tm[3], min=tm[4], sec=tm[5], dow=tm[6], doy=tm[7],
-                       is_dst=tm[8])
+                       is_dst=tm[8], tick=now)
         json_text = json.dumps(my_time)
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
@@ -41,7 +42,7 @@ def arg_parser():
     """
     parser = argparse.ArgumentParser(prog=f"{LocalTimeServer.__name__}",
                                      description=f"{LocalTimeServer.__name__} - {__description__}", add_help=False)
-    parser.add_argument("-l", "--listener", help="listener name/address. 0.0.0.0 for any listener.", required=True)
+    parser.add_argument("-l", "--listener", help="listener name/address (default 0.0.0.0 = any listener).", default="0.0.0.0")
     parser.add_argument("-p", "--port", type=int, help="port#", required=True)
     parser.add_argument("--version", action="version", version=f"{LocalTimeServer.__name__} {__version__}")
     parser.add_argument("-?", "--help", help="show help message and quit", action="help")
