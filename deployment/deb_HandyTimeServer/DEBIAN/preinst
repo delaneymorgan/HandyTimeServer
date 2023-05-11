@@ -1,0 +1,4 @@
+if [ -e "/etc/systemd/system/HandyTimeServer.service" ]
+then
+    systemctl stop HandyTimeServer
+fi

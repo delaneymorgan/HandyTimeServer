@@ -10,7 +10,7 @@ import sys
 # =============================================================================
 
 
-BUILD_INFO_FILEPATH = "../LocalTimeServer_file_list.json"
+BUILD_INFO_FILEPATH = "../HandyTimeServer_file_list.json"
 
 
 # =============================================================================
@@ -82,7 +82,7 @@ def arg_parser():
 
     :return: the parsed command line arguments
     """
-    parser = argparse.ArgumentParser(description="installs LocalTimeServer into Raspbian", add_help=False)
+    parser = argparse.ArgumentParser(description="installs HandyTimeServer into Raspbian", add_help=False)
     parser.add_argument("-?", "--help", help="show help message and quit", action="help")
     args = parser.parse_args()
     return args
@@ -91,7 +91,7 @@ def arg_parser():
 def main():
     _ = arg_parser()
     try:
-        installer = RaspbianInstaller("LocalTimeServer", BUILD_INFO_FILEPATH, "damco")
+        installer = RaspbianInstaller("HandyTimeServer", BUILD_INFO_FILEPATH, "damco")
         installer.install()
     except Exception as ex:
         print(f"Error: {ex}")

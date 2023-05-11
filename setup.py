@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    packages=["LocalTimeServer"],
-    package_dir={"LocalTimeServer": "LocalTimeServer"},
+    packages=["HandyTimeServer"],
+    package_dir={"HandyTimeServer": "HandyTimeServer"},
     package_data={}
 )

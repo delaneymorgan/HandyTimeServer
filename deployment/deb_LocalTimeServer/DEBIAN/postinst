@@ -1,5 +1,0 @@
-chown root:root /etc/systemd/system/LocalTimeServer.service
-chmod -x /etc/systemd/system/LocalTimeServer.service
-
-systemctl --now enable LocalTimeServer
-systemctl start LocalTimeServer

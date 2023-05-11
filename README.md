@@ -1,10 +1,10 @@
-# LocalTimeServer
-A simple local time server
+# HandyTimeServer
+A simple handy time server
 
 ## Usage:
 
 ```shell
-LocalTimeServer [-l <listener>] -p <port> [--version] [-?]
+HandyTimeServer [-l <listener>] -p <port> [--version] [-?]
 ```
 
 The server will answer queries from the specified listener on the specified port with the current local time in JSON format.
@@ -16,12 +16,12 @@ Enter the -? option to view command-line options.
 For instance:
 
 ```shell
-LocalTimeServer -p 10123
+HandyTimeServer -p 10123
 ```
 
 ... and in a browser, enter:
 
-    http://<LocalTimeServer Host>:10123/
+    http://<HandyTimeServer Host>:10123/
 
 It should return something like this:
 
@@ -39,7 +39,7 @@ sudo apt install python<X.X>-venv
 
 ...where X.X is the python version on your system.
 i.e. python3.10 would be python3.10-venv.
-Note that LocalTimeServer requires Python 3.6 or later.
+Note that HandyTimeServer requires Python 3.6 or later.
 
 From this directory:
 
@@ -50,11 +50,11 @@ python3 build .
 To install the built package:
 
 ```shell
-pip3 install ./dist/LocalTimeServer-<VERSION>-py3-none-any.whl --force-reinstall
+pip3 install ./dist/HandyTimeServer-<VERSION>-py3-none-any.whl --force-reinstall
 ```
 
-...where VERSION is the version of LocalTimeServer you have just built (see version.py).
-This will install LocalTimeServer just for the current user in .local/bin.
+...where VERSION is the version of HandyTimeServer you have just built (see version.py).
+This will install HandyTimeServer just for the current user in .local/bin.
 To install system-wide, use sudo.
 
 ## Building Debian package
@@ -74,14 +74,14 @@ from the deployment folder, run:
 ...where version is in a <major>.<minor>.<maintenance> format.
 The produced package will have the form:
 
-    LocalTimeServer-<version>.deb
+    HandyTimeServer-<version>.deb
 
 ## Installing into OS
 
 Ubuntu/Debian:
 
 ```shell
-sudo dpkg -i LocalTimerServer-<version>.deb
+sudo dpkg -i HandyTimerServer-<version>.deb
 ```
 
 Raspbian:
@@ -94,4 +94,4 @@ sudo ./install_on_raspbian.py
 
 The version number is kept here:
 
-    ./LocalTimeServer/version.py
+    ./HandyTimeServer/version.py

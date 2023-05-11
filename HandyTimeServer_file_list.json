@@ -1,0 +1,13 @@
+{
+  "app_files": [
+    "__init__.py",
+    "handy_time_server.py",
+    "version.py"
+  ],
+  "control_files": {
+    ".deployment/deb_lts/etc/systemd/system/HandyTimeServer.service": "/etc/systemd/system/HandyTimeServer.service"
+  },
+  "description": "This file is required for standalone HandyTimeServer Debian package",
+  "install_prefix_path": "/opt/damco/HandyTimeServer/",
+  "source_prefix_path": "./HandyTimeServer/"
+}

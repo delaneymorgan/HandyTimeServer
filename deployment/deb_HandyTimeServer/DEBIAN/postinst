@@ -1,0 +1,5 @@
+chown root:root /etc/systemd/system/HandyTimeServer.service
+chmod -x /etc/systemd/system/HandyTimeServer.service
+
+systemctl --now enable HandyTimeServer
+systemctl start HandyTimeServer

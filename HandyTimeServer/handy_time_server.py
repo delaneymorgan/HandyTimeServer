@@ -5,8 +5,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import argparse
 import json
 import time
-import LocalTimeServer
-from LocalTimeServer.version import __version__, __description__
+import HandyTimeServer
+from HandyTimeServer.version import __version__, __description__
 
 
 # =============================================================================
@@ -49,12 +49,12 @@ def arg_parser():
 
     :return: the parsed command line arguments
     """
-    parser = argparse.ArgumentParser(prog=f"{LocalTimeServer.__name__}",
-                                     description=f"{LocalTimeServer.__name__} - {__description__}", add_help=False)
+    parser = argparse.ArgumentParser(prog=f"{HandyTimeServer.__name__}",
+                                     description=f"{HandyTimeServer.__name__} - {__description__}", add_help=False)
     parser.add_argument("-l", "--listener", help="listener name/address (default 0.0.0.0 = any listener).",
                         default="0.0.0.0")
     parser.add_argument("-p", "--port", type=int, help="port#", required=True)
-    parser.add_argument("--version", action="version", version=f"{LocalTimeServer.__name__} {__version__}")
+    parser.add_argument("--version", action="version", version=f"{HandyTimeServer.__name__} {__version__}")
     parser.add_argument("-?", "--help", help="show help message and quit", action="help")
     args = parser.parse_args()
     return args
@@ -66,13 +66,13 @@ def arg_parser():
 def main():
     args = arg_parser()
     web_server = HTTPServer((args.listener, args.port), MyServer)
-    print(f"{LocalTimeServer.__name__} started http://{args.listener}:{args.port}")
+    print(f"{HandyTimeServer.__name__} started http://{args.listener}:{args.port}")
     try:
         web_server.serve_forever()
     except KeyboardInterrupt:
         pass
     web_server.server_close()
-    print(f"{LocalTimeServer.__name__} stopped")
+    print(f"{HandyTimeServer.__name__} stopped")
     return
 
 

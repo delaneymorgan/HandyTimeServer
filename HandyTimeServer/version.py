@@ -3,7 +3,7 @@
 
 __version__ = "0.1.0"
 
-__description__ = "A simple web-service providing local time on request in JSON format."
+__description__ = "A simple web-service providing time on request in JSON format."
 
 
 if __name__ == "__main__":

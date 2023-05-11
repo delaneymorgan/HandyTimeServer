@@ -1,0 +1,12 @@
+[Unit]
+Description=Simple time server
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/opt/damco/HandyTimeServer
+ExecStart=/opt/damco/LocalTimeServer/handy_time_server.py -l 0.0.0.0 -p 10123
+
+[Install]
+WantedBy=multi-user.target

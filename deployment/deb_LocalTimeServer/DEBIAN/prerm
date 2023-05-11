@@ -1,2 +1,0 @@
-systemctl stop LocalTimeServer
-systemctl daemon-reload

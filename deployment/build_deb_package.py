@@ -8,7 +8,7 @@ from VersionValidator import ValidateVersionNumber
 # =============================================================================
 
 
-BUILD_INFO_FILEPATH = "../LocalTimeServer_file_list.json"
+BUILD_INFO_FILEPATH = "../HandyTimeServer_file_list.json"
 
 
 # =============================================================================
@@ -20,7 +20,7 @@ def arg_parser():
 
     :return: the parsed command line arguments
     """
-    parser = argparse.ArgumentParser(description="makes LocalTimeServer a package for the specified target",
+    parser = argparse.ArgumentParser(description="makes HandyTimeServer a package for the specified target",
                                      add_help=False)
     parser.add_argument("-v", "--version", type=str, help="version#, i.e. x.y.z",
                         required=True, action=ValidateVersionNumber)
@@ -32,7 +32,7 @@ def arg_parser():
 def main():
     args = arg_parser()
     try:
-        builder = PackageBuilder.PackageBuilder("LocalTimeServer", BUILD_INFO_FILEPATH, args.version)
+        builder = PackageBuilder.PackageBuilder("HandyTimeServer", BUILD_INFO_FILEPATH, args.version)
         builder.build_debian()
     except Exception as ex:
         print(f"Error: {ex}")
